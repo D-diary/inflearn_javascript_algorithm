@@ -34,7 +34,7 @@
 // console.log(solution(str));
 
 // 영상 답안 2
-// string은 참조가 되지 않고 값이 복사됨
+// string은 참조가 되지 않고 값이 복사됨 배열처럼 얕은 복사가 아님( 배열도 깊은복사 됨)
 
 function solution(s) {
   let answer = s;
