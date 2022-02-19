@@ -19,16 +19,28 @@
 
 // 영상 답안
 
+// function solution(s) {
+//   let answer = "";
+
+//   for ( let x of s ) {
+//     if ( x === 'A' ) answer +='#';
+//     else answer += x;
+//   }
+
+//   return answer;
+// }
+
+// let str = "BANANA";
+// console.log(solution(str));
+
+// 영상 답안 2
+// string은 참조가 되지 않고 값이 복사됨
+
 function solution(s) {
-  let answer = "";
-
-  for ( let x of s ) {
-    if ( x === 'A' ) answer +='#';
-    else answer += x;
-  }
-
+  let answer = s;
+  answer = s.replace(/A/g, '#');
+  console.log(s);
   return answer;
 }
-
 let str = "BANANA";
 console.log(solution(str));
