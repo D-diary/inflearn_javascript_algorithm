@@ -6,14 +6,14 @@
 
 // 출력 설명 : 첫번째 줄에 바뀐 단어를 출력한다.
 
-// function solution(n) {
-//   const arr = [];
-//   for ( let i = 0; i < n.length; i++) {
-//     if ( n[i] !== 'A' ) arr.push(n[i])
-//     if ( n[i] === 'A' ) arr.push('#')
-//   }
-//   return arr.join('')
-// }
+function solution(n) {
+  const arr = [];
+  for ( let i = 0; i < n.length; i++) {
+    if ( n[i] !== 'A' ) arr.push(n[i])
+    if ( n[i] === 'A' ) arr.push('#')
+  }
+  return arr.join('')
+}
 
 // console.log(solution('BANANA'))
 
@@ -36,11 +36,11 @@
 // 영상 답안 2
 // string은 참조가 되지 않고 값이 복사됨 배열처럼 얕은 복사가 아님( 배열도 깊은복사 됨)
 
-function solution(s) {
-  let answer = s;
-  answer = s.replace(/A/g, '#');
-  console.log(s);
-  return answer;
-}
-let str = "BANANA";
-console.log(solution(str));
+// function solution(s) {
+//   let answer = s;
+//   answer = s.replace(/A/g, '#');
+//   console.log(s);
+//   return answer;
+// }
+// let str = "BANANA";
+// console.log(solution(str));
