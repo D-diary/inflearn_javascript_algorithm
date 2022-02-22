@@ -3,12 +3,12 @@ function solution(a, b, c) {
   let total = a + b + c;
   let max = 0;
 
-  if ( a > b ) max = a;
+  if (a > b) max = a;
   else max = b;
 
-  if ( c > max ) max = c;
+  if (c > max) max = c;
 
-  if ( total - max <= max ) {
+  if (total - max <= max) {
     return answer = "no"
   }
   return answer;
