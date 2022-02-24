@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .wrap {
+      display: flex;
+    }
+
+    .title {
+      font-size: 100px;
+      font-weight: bold;
+    }
+
+    .vs {
+      font-size: 300px;
+      font-weight: bold;
+    }
+
+    .rps-container {
+      width: 100vw;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button-container button {
+      width: 200px;
+      height: 100px;
+      font-size: 70px;
+      margin: 10px;
+    }
+
+    .button-container > button {
+      width: 400px;
+      height: 100px;
+      font-size: 70px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container wrap">
+    <div class="title">게임을 시작하지!</div>
+  </div>
+  <div class="container rps-container">
+    <div class="user">
+      <img src="./img/paper.png" alt="paper">
+    </div>
+    <div class="vs">
+      VS
+    </div>
+    <div class="com">
+      <img src="./img/paper.png" alt="paper">
+    </div>
+  </div>
+  <div class="container button-container">
+    <div class="btn">
+      <button class="rps1">가위</button>
+      <button class="rps2">바위</button>
+      <button class="rps3">보</button>
+    </div>
+    <button>다시하기</button>
+  </div>
+
+<script>
+  const rps1 = document.querySelector('.rps1');
+  const rps2 = document.querySelector('.rps2');
+  const rps3 = document.querySelector('.rps3');
+  let title = document.querySelector('.title')
+
+
+  const rpsImages = ['./img/paper.png', './img/rock.png', './img/scissors.png'];
+
+  let userCount = 0;
+
+  const userImage = document.querySelector('.user > img');
+  const comImage = document.querySelector('.com > img');
+
+  const userIntervalId = setInterval(function(){
+    userImage.src = rpsImages[userCount % 3];
+    userCount += 1;
+  }, 100)
+
+  let comCount = 0;
+  const comIntervalId = setInterval(function(){
+    comImage.src = rpsImages[comCount % 3];
+    comCount += 1;
+  }, 100);
+
+
+  // 가위
+  rps1.addEventListener('click', function(){
+    userImage.src = './img/scissors.png';
+    clearInterval(userIntervalId);
+    clearInterval(comIntervalId);
+    title = '';
+  });
+
+  // 바위
+  rps2.addEventListener('click', function(){
+    userImage.src = './img/rock.png';
+    clearInterval(userIntervalId);
+    clearInterval(comIntervalId);
+  });
+
+  // 보
+  rps3.addEventListener('click', function(){
+    userImage.src = './img/paper.png';
+    clearInterval(userIntervalId);
+    clearInterval(comIntervalId);
+  });
+
+
+
+</script>
+</body>
+</html>
