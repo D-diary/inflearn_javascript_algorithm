@@ -8,7 +8,7 @@
 
 function solution(s) {
   let answer = '';
-  
+
   for ( let i = 0; i < s.length; i++) {
     if ( s[i] === s[i].toUpperCase() ) {
       answer += s[i].toLowerCase();
@@ -19,4 +19,4 @@ function solution(s) {
   return answer;
 }
 
-console.log(solution('StuDY'));
+console.log(solution('StuDY')); // sTUdy

@@ -95,6 +95,9 @@
   const userImage = document.querySelector('.user > img');
   const comImage = document.querySelector('.com > img');
 
+  const userElem = document.querySelector('.user')
+  const comElem = document.querySelector('.com')
+
   const userIntervalId = setInterval(function(){
     userImage.src = rpsImages[userCount % 3];
     userCount += 1;
