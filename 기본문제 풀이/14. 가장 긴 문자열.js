@@ -23,12 +23,9 @@ function solution(str) {
   let temp = Number.MIN_SAFE_INTEGER;
 
   for ( let i = 0; i < str.length; i++ ) {
-    for ( let j = 0; j < str[i].length; j++) {
-      // console.log(str[i][j], j, str.length, str[i].length)
-      if ( temp < str[i].length ) {
-        temp = str[i].length;
-        answer = str[i];
-      }
+    if ( temp < str[i].length ) {
+      temp = str[i].length;
+      answer = str[i];
     }
   }
 
