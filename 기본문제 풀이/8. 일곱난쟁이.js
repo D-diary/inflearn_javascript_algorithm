@@ -20,35 +20,35 @@
 
 // 가짜 난쟁이 값을 찾아 a와 b에 넣고 그 값을 제외한 값을 배열에 push
 
-// function solution(arr) {
-//   const answer = [];
-//   let num = 0;
-//   let a = 0, b = 0;
+function solution(arr) {
+  const answer = [];
+  let num = 0;
+  let a = 0, b = 0;
 
-//   for ( let i = 0; i < arr.length; i++) {
-//     num += arr[i]
-//   }
+  for ( let i = 0; i < arr.length; i++) {
+    num += arr[i]
+  }
 
-//   for ( let i = 0; i < arr.length; i++) {
-//     for ( let j = i + 1; j < arr.length; j++) {
-//       if ( num - (arr[i] + arr[j]) === 100 ) {
-//         a = arr[i];
-//         b = arr[j];
-//       }
-//     }
-//   }
+  for ( let i = 0; i < arr.length; i++) {
+    for ( let j = i + 1; j < arr.length; j++) {
+      if ( num - (arr[i] + arr[j]) === 100 ) {
+        a = arr[i];
+        b = arr[j];
+      }
+    }
+  }
 
-//   for (let i = 0; i < arr.length; i++) {
-//     if ( arr[i] !== a && arr[i] !== b) {
-//       answer.push(arr[i]);
-//     }
-//   }
-//   console.log(a,b)
-//   return answer;
+  for (let i = 0; i < arr.length; i++) {
+    if ( arr[i] !== a && arr[i] !== b) {
+      answer.push(arr[i]);
+    }
+  }
+  console.log(a,b)
+  return answer;
 
-// }
+}
 
-// console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
+console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
 
 // 두번째 풀이
 

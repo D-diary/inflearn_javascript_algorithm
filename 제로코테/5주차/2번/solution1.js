@@ -1,22 +1,37 @@
 function solution(s) {
-  let count = 0;
   let answer = [];
-  for ( let i = 0; i < s.length; i++ ) {
-    if (s[i] === " ") {
-      count = 0;
-    }
-    if (s[i]==="?" || s[i]==="!") {
-      s[i]==="";
-    }
-    if (s[i]==="." || s[i]===",") {
-      s[i]==="";
-    }
+
+  
+  answer = s.split(".").join('');
+  console.log(answer);
+  answer = answer.split("!").join('');
+  answer = answer.split("?").join('');
+  answer = answer.split(",").join('');
+  answer = answer.split(" ")
+  
+  for ( let i = 0; i < answer.length; i++ ) {
+    answer[i] = answer[i].split('').reverse().join('');
   }
 
-  answer = s.split(" ")
-  console.log(answer);
-  
-
+  return answer;  
 }
 
 console.log(solution("Hello, World!?")); // ["olleH, dlroW"]
+
+
+  // for ( let i = 0; i < answer.length; i++ ) {
+  //   for ( let j = 0; j < answer[i].length; j++ ) {
+  //     if ( answer[i][j] === "," ) {
+  //       answer[i][j] = answer[i][j].substr(0,1)
+  //     }
+  //     if ( answer[i][j] === "." ) {
+  //       answer[i][j] = answer[i][j].substr(0,1)
+  //     }
+  //     if ( answer[i][j] === "!" ) {
+  //       answer[i][j] = answer[i][j].substr(0,1)
+  //     }
+  //     if ( answer[i][j] === "?" ) {
+  //       answer[i][j] = answer[i][j].substr(0,1)
+  //     }
+  //   }
+  // }
