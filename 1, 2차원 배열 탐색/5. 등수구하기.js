@@ -17,6 +17,29 @@ N(1<=N<=100)명의 학생의 국어점수가 입력되면 각 학생의 등수�
 4 3 2 1 5
 */
 
+// 다른 답안
+
+function solution(arr) {
+  let n = arr.length;
+  let answer = [];
+
+  for (let i = 0; i < n; i++) {
+    answer.push(1);
+  }
+
+  for ( let i = 0; i < arr.length; i++ ) {
+    for ( let j = 0; j < arr.length; j++ ) {
+      if (arr[i] < arr[j]) {
+        answer[i]++;
+      }
+    }
+  }
+
+  return arr;
+}
+
+console.log(solution([87, 89, 92, 100, 76])); // 4, 3, 2, 1, 5
+
 // function solution(num) {
 //   const nums = num
 //   let answer = [];
@@ -32,6 +55,8 @@ N(1<=N<=100)명의 학생의 국어점수가 입력되면 각 학생의 등수�
 
 //   return answer;
 // }
+
+// 답안
 
 function solution(arr) {
   let n = arr.length;
