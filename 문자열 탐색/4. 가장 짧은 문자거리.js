@@ -34,7 +34,7 @@ function solution(s, t) {
   for ( let i = s.length -1; i >= 0; i--) {
     if ( s[i] === t ) {
       p = 0;
-      answer.push(p)
+      answer[i] = 0;
     }
     else {
       p++;
@@ -45,4 +45,4 @@ function solution(s, t) {
   return answer;
 }
 
-console.log(solution("teachermode", e))
+console.log(solution("teachermode", "e"));
