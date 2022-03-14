@@ -21,3 +21,73 @@ N개의 자연수가 입력되면 각 자연수의 자릿수의 합을 구하고
 137
 
 */
+
+function solution(n, arr) {
+  let answer = [];
+  let num = 0;
+
+  for ( let i = 0; i < n; i++ ) {
+    let str = String(arr[i])
+    for ( let j = 0; j < str.length; j++ ) {
+      num += Number(str[j])
+      // console.log('yy', num, str[j], str[j+1])
+    }
+    answer.push(num);
+    num = 0;
+  }
+  console.log(answer);
+}
+
+console.log(solution(7, [128, 460, 603, 40, 521, 137, 123]));
+
+// 영상 답안
+
+function solution(n, arr) {
+  let answer, max = Number.MIN_SAFE_INTEGER;
+  for ( let x of arr ) {
+    let sum = 0, tmp = x;
+    while ( tmp ) {
+      // let t = tmp % 10;
+      // sum += t;
+      sum += (tmp%10);
+      tmp = Math.floor(tmp/10);
+    }
+    if ( sum > max ) {
+      max = sum;
+      answer = x;
+    } else if ( sum === max ) {
+      if ( x > answer ) {
+        answer = x;
+      }
+    }
+
+  }
+
+  return answer;
+}
+
+let arr = [128, 460, 603, 40, 521, 137, 123];
+console.log(solution(7, arr)); // 137
+
+// 영상 답안 2
+
+function solution(n, arr) {
+  let answer, max = Number.MIN_SAFE_INTEGER;
+  for ( let x of arr ) {
+    let sum = x.toString().split('').reduce((a, b) => a + Number(b), 0);
+    if ( sum > max ) {
+      max = sum;
+      answer = x;
+    } else if ( sum === max ) {
+      if ( x > answer ) {
+        answer = x;
+      }
+    }
+
+  }
+
+  return answer;
+}
+
+let arr = [128, 460, 603, 40, 521, 137, 123];
+console.log(solution(7, arr)); // 137
