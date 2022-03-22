@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>더하기 게임</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    body {
+      width : 100vw;
+      height : 2000px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* justify-content: center; */
+    }
+    .title {
+      text-align: center;
+      height : 70px;
+      font-size : 50px;
+    }
+    .mode {
+      height : 70px;
+    }
+    .mode > button {
+      width : 100px;
+      height : 50px;
+      font-size : 20px;
+      margin-left: 10px;
+    }
+    .start {
+      height : 70px;
+    }
+    .start > button {
+      width : 100px;
+      height : 50px;
+      font-size: 20px;
+    }
+    .container {
+      display : flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .box, .number {
+      width : 200px;
+      height : 200px;
+      border : solid black 4px;
+      box-sizing: border-box;
+      border-radius : 20px;
+      font-size : 180px;
+      text-align : center;
+      margin : 10px;
+    }
+
+
+    .number-wrap {
+      padding: 10px;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      width : 1200px;
+      height : 1000px;
+      border: solid black 4px;
+      border-radius : 20px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">덧셈 맞추기</div>
+  <div class="mode">
+    <button class="small">순한맛</button>
+    <button class="big">매운맛</button>
+  </div>
+  <div class="start">
+    <button class="btnStart">시작</button>
+  </div>
+  <div class="container">
+    <div class="box num1"></div>
+    <div class="box">+</div>
+    <div class="box num2"></div>
+    <div class="box">=</div>
+    <div class="box answer"></div>
+  </div>
+  <div class="number-wrap"></div>
+  <script>
+    const btnSmall = document.querySelector('.small');
+    const btnBig = document.querySelector('.big');
+    const btnStart = document.querySelector('.btnStart');
+    
+    const numberWrap = document.querySelector('.number-wrap');
+    const answer = document.querySelector('.answer');
+
+    function random(n) {
+      return Math.floor(Math.random() * n)
+    }
+
+    // function makeRandomAlpha(arr) {
+    //   const arr = s.split('');
+
+    //   return function () {
+    //     const r = random(arr.length);
+    //     return arr.splice(r, 1)[0];
+    //   }
+    // }
+    
+    function makeBox(n) {
+      numberWrap.textContent = '';
+      if (n === 10) {
+        numberWrap.style.height = '500px'
+      }
+      if (n === 20) {
+        numberWrap.style.height = '900px'
+      }
+      
+      for ( let i = 0; i < n; i++ ) {
+        const box = document.createElement('div');
+        box.classList.add('number')
+        box.textContent = i+1;
+        numberWrap.appendChild(box);
+      }
+    };
+
+    btnSmall.addEventListener('click', function () {
+      makeBox(10)
+    });
+
+    btnBig.addEventListener('click', function () {
+      makeBox(20)
+    });
+
+    btnStart.addEventListener('click', function () {
+      if ( numberWrap.textcontent === '' ) {
+        return;
+      }
+      const n = [];
+
+      const numbers = document.querySelectorAll('.number')
+      // const randomAlpha = makeRandomAlpha(numbers);
+      
+      for ( let i = 0; i < numbers.length; i++ ) {
+        // const r = random(numbers.length-1);
+        // console.log(numbers[r].textContent);
+        
+      }
+      n.push(numbers[0].textContent)
+      n.push(numbers[1].textContent)
+      let result = Number(n[0])+Number(n[1]);
+      answer.textContent = result;
+      console.log(answer.textContent);
+      console.log(typeof answer.textContent);
+
+    });
+    let clicked = []
+    numberWrap.addEventListener('click', function (event) {
+      if (!event.target.classList.contains('number')) {
+        return;
+      }
+      
+      const number = event.target;
+      clicked.push(number);
+      console.log(clicked);
+
+
+      document.querySelector('.num1').textContent = clicked[0].textContent;
+      document.querySelector('.num2').textContent = clicked[1].textContent;
+      // 166번줄만 에러가 뜸
+
+      if ( clicked.length === 2) {
+        console.log(Number(clicked[0].textContent) + Number(clicked[1].textContent));
+        console.log(answer.textContent);
+        console.log(typeof answer.textContent);
+        if ( (clicked[0].textContent) + (clicked[1].textContent) == Number(answer.textContent) ) {
+          console.log('yes');
+        }
+      }
+
+    });
+
+  </script>
+</body>
+</html>
